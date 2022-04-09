@@ -14,6 +14,7 @@ public class Hostage : MonoBehaviour, IDamage
     }
     public void TakeDamage(float damage)
     {
+        transform.localRotation*=Quaternion.identity;
         health -= damage;
         powerBar.value = health;
         if (health <= 0)
