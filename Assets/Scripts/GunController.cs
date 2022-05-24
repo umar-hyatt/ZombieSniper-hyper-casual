@@ -12,7 +12,7 @@ public class GunController : MonoBehaviour
     RaycastHit hit;
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     public void ScopeZoom()
     {

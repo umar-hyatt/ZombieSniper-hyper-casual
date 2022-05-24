@@ -37,6 +37,7 @@ public class Zombie : MonoBehaviour, IDamage
     {
         CurrentTask -= Chase;
         transform.position = initPos;
+        ResetZombie();
     }
     private void Update()
     {
@@ -115,5 +116,11 @@ public class Zombie : MonoBehaviour, IDamage
         if (currentState == newState) return;
         animator.Play(newState);
         currentState = newState;
+    }
+    public void ResetZombie()
+    {
+        powerBar.value=powerBar.maxValue;
+        health=powerBar.maxValue;
+        headShotTxt.gameObject.SetActive(false);
     }
 }

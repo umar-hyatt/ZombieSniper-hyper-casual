@@ -13,5 +13,20 @@ public class SoundController : MonoBehaviour
             instance = this;
         }
     }
-    public AudioSource gamePlayBG, win, lose,zombie;
+    public AudioSource gamePlayBG, win, lose, zombie;
+    public void ChangeMusicVolume(float volume)
+    {
+        gamePlayBG.volume=volume;
+    }
+    public void ChangeSoundVolume(float volume)
+    {
+        win.volume=volume;
+        lose.volume=volume;
+        zombie.volume=volume;
+    }
+    public void Vibration()
+    {
+        if (!GameManager.instance.isVibration) return;
+        Handheld.Vibrate();
+    }
 }
