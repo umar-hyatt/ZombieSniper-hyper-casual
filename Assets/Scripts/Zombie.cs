@@ -4,23 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-public class Zombie : MonoBehaviour, IDamage
+public class Zombie : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Animator animator;
     public Transform target;
     public Slider powerBar;
     public Text headShotTxt;
-    public float attackTime = 2f;
-    public float speed;
-    public float attackRange;
     public float damage;
     public float health;
     public delegate void Task();
     Task CurrentTask;
     Vector3 initPos;
+
     private void Start()
     {
+        print("zombie.cs gameObj name : " + gameObject.name);
         target = GameObject.FindWithTag("Hostage").transform;
         animator = GetComponent<Animator>();
         currentHostage = target.GetComponent<Hostage>();
@@ -97,11 +96,16 @@ public class Zombie : MonoBehaviour, IDamage
         }
     }
     public bool isDie;
+    private void OnDestroy() {
+        GameWinController.instance.CheckRemainingZombie();
+    }
     public void Death()
     {
         isDie = true;
-        this.enabled = false;
         ChangeAnimationState(dieState);
+        Destroy(gameObject,1f);
+        this.enabled = false;
+
       //  GetComponent<Renderer>().material.color = new Color(120f, 0f, 0f, 10f);
        // transform.localScale = Vector3.one * 0.2f;
     }

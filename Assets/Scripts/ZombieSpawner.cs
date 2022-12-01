@@ -16,6 +16,7 @@ public class ZombieSpawner : MonoBehaviour
     BoxCollider objectCollider;
     private void Start()
     {
+        print("zombieSpwaner cs gameOjb name : " + gameObject.name);
         objectCollider = GetComponent<BoxCollider>();
     }
     public IEnumerator SpawnObject()

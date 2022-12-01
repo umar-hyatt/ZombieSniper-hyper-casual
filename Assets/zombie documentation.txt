@@ -1,0 +1,16 @@
+make game with 20 levels
+gun store (with guns powers bullets reload time and magsize)
+bullets effets
+cut scenes are diff with respect to levels
+muliple skins
+
+*Gun System:
+  :: at level start check which gun is selected.
+  :: then give corresponding zoom value to the main zoom slider's max value
+  :: then change enemy health damage according to corresponding gun damage
+  ** Note : make gun system after making level system. 
+
+*Level System: 
+  :: 
+
+zombie's health slider also look at player

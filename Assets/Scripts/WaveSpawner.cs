@@ -7,6 +7,7 @@ public class WaveSpawner : MonoBehaviour
     public ZombieSpawner[] zombieSpawners;
     private void Start()
     {
+        print("wave spawner cs gameObj name" + gameObject.name);
         zombieSpawners=FindObjectsOfType<ZombieSpawner>();
         StartCoroutine(SpawnStart());
     }
